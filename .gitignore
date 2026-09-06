@@ -1,0 +1,33 @@
+# Python 运行时产物
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# Skill 安装元数据（含平台账号 ID，不入库）
+_meta.json
+_user_meta.json
+
+# 本地一次性定制抓取脚本（含个人绝对路径，未脱敏，不入库）
+scripts/mt_detail.py
+scripts/mt_direct.py
+scripts/mt_sec_dig.py
+scripts/mt_verify.py
+scripts/mt_zhihu_grab.py
+
+# 采集产物（脚本默认输出到用户指定的 --outdir，这里只做兜底）
+out/
+data/
+题库_*.json
+题库_*.md
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
