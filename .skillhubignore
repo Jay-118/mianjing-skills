@@ -1,0 +1,10 @@
+# 本地一次性定制脚本（含个人绝对路径，不随包发布）
+scripts/mt_detail.py
+scripts/mt_direct.py
+scripts/mt_sec_dig.py
+scripts/mt_verify.py
+scripts/mt_zhihu_grab.py
+
+# Skill 安装元数据（含平台 ownerId）
+_meta.json
+_user_meta.json
