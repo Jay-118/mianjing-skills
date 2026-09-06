@@ -1,3 +1,9 @@
+# 平台不接受的文件类型（会报「不允许的文件类型」）
+# .gitattributes：不在白名单；LICENSE：无扩展名不被接受
+# （License 已由 SKILL.md frontmatter 的 license: MIT 声明，完整文本见 GitHub 仓库）
+.gitattributes
+LICENSE
+
 # 本地一次性定制脚本（含个人绝对路径，不随包发布）
 scripts/mt_detail.py
 scripts/mt_direct.py
