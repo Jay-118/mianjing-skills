@@ -17,7 +17,7 @@ CDP 直连，非 Playwright），直接复用比自己再写一套划算。
 真实 API 签名（**必须照抄，别凭直觉猜**）
 --------------------------------------
     from xhs.cdp import Browser
-    browser = Browser(port=9222)      # 不是 CDPClient(port=...)
+    browser = Browser(port=_PORT)      # 不是 CDPClient(port=...)
     browser.connect()                 # 从 /json/version 取 webSocketDebuggerUrl
     page = browser.new_page(url)      # new_page 挂在 Browser 上，不在 CDPClient 上
 
@@ -34,6 +34,7 @@ CDP 直连，非 Playwright），直接复用比自己再写一套划算。
 import os
 import sys
 import time
+_PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 
 # 依赖已内联到 scripts/vendor/，deps 负责把它加入 sys.path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -59,7 +60,7 @@ class Browser(object):
     headless 必须为 False —— 知乎会检测 headless 特征。
     """
 
-    def __init__(self, port=9222, headless=False, reuse_tab=True):
+    def __init__(self, port=_PORT, headless=False, reuse_tab=True):
         self.port = port
         self.headless = headless
         self.reuse_tab = reuse_tab
@@ -116,7 +117,7 @@ class Browser(object):
             return ""
 
 
-def try_browser(port=9222, headless=False):
+def try_browser(port=_PORT, headless=False):
     """返回 Browser 或 None（基建不可用时）。调用方须处理 None。"""
     if not available():
         print("  [skip] CDP 基建不可用：未找到 xiaohongshu-skills/scripts/xhs/cdp.py")

@@ -35,7 +35,7 @@ import chrome_launcher as cl                     # noqa: E402
 from xhs.cdp import Browser                      # noqa: E402
 from xhs import login as xlogin                  # noqa: E402
 
-PORT = 9222
+PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 WATCH_MINUTES = int(os.environ.get("WATCH_MINUTES", "20"))
 REFRESH_SEC = int(os.environ.get("REFRESH_SEC", "100"))
 POLL_SEC = 5

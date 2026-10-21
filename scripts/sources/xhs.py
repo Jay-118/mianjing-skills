@@ -43,7 +43,7 @@ import deps  # noqa: E402  依赖已内联到 vendor/，import 时自动 setup
 from normalize import make_item  # noqa: E402
 
 SOURCE = "xhs"
-PORT = 9222
+PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 
 
 def available():

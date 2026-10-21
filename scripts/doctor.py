@@ -153,11 +153,11 @@ def check_chrome():
             "装 Chrome，或设环境变量 CHROME_BIN 指向可执行文件")
     running = False
     try:
-        running = cl.is_chrome_running(9222)
+        running = cl.is_chrome_running(int(os.environ.get("IC_CDP_PORT","9222")))
     except Exception:
         pass
     # 未启动是正常状态（按需启动），不算问题
-    chk("Chrome 端口 9222", OK,
+    chk("Chrome 端口 " + os.environ.get("IC_CDP_PORT","9222"), OK,
         "在跑" if running else "未启动 —— 正常，用浏览器源前起一下即可",
         "" if running else
         "HOLD_MINUTES=90 python login_all.py --keepalive &")

@@ -19,7 +19,7 @@ from xhs.stealth import STEALTH_ARGS
 logger = logging.getLogger(__name__)
 
 # 默认远程调试端口
-DEFAULT_PORT = 9222
+DEFAULT_PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 
 # 全局进程追踪
 _chrome_process: subprocess.Popen | None = None

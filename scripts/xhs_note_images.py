@@ -33,6 +33,7 @@ import time
 import random
 
 import requests
+_PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 
 os.environ.setdefault("NO_PROXY", "127.0.0.1,localhost")
 os.environ.setdefault("no_proxy", "127.0.0.1,localhost")
@@ -156,10 +157,10 @@ def main():
 
     import chrome_launcher as cl
     from xhs.cdp import Browser
-    if not cl.is_chrome_running(9222):
+    if not cl.is_chrome_running(_PORT):
         print("[!] Chrome 未运行，请先: HOLD_MINUTES=50 python login_all.py --keepalive")
         return 1
-    br = Browser(port=9222)
+    br = Browser(port=_PORT)
     br.connect()
     page = br.new_page("about:blank")   # 专用 tab，避免复用空白页导致 NO_STATE
 

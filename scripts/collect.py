@@ -30,7 +30,7 @@ def _cdp_targets():
     os.environ["no_proxy"] = "127.0.0.1,localhost"
     try:
         import urllib.request
-        req = urllib.request.Request("http://127.0.0.1:9222/json")
+        req = urllib.request.Request("http://127.0.0.1:%d/json" % int(os.environ.get("IC_CDP_PORT","9222")))
         with urllib.request.urlopen(req, timeout=5) as r:
             return json.loads(r.read().decode("utf-8", "ignore"))
     except Exception:

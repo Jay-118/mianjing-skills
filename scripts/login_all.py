@@ -53,7 +53,7 @@ SITES = [
 ]
 
 HOLD_MINUTES = int(os.environ.get("HOLD_MINUTES", "180"))
-PORT = 9222
+PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 
 
 def launch_detached():

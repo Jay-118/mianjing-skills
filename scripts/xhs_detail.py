@@ -42,7 +42,7 @@ from normalize import make_item, pipeline          # noqa: E402
 from output import write_all                       # noqa: E402
 
 TOKEN_LEN_EXPECT = 46
-PORT = 9222
+PORT = int(os.environ.get("IC_CDP_PORT", "9222"))
 _page = None
 
 
